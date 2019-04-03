@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "venv/bin/python"
+    "python.pythonPath": "/Users/enrique/anaconda3/envs/djangodev/bin/python",
+    "workbench.editor.closeOnFileDelete": true,
+    "python.linting.pylintEnabled": true
 }
