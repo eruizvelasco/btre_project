@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-from btre.passwords import email_user, email_password, db_user, db_password
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -80,16 +79,7 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
-        'USER': db_user,
-        'PASSWORD': db_password,
-        'HOST': 'localhost'
-    }
-}
-
+# moved this to local_settings
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -142,13 +132,6 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
-
-# Email Config
-EMAIL_HOST = 'mail.tverio.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER=email_user
-EMAIL_HOST_PASSWORD=email_password
-EMAIL_USE_TLS=True
 
 try:
     from .local_settings import *
