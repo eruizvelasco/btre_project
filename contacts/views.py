@@ -2,8 +2,10 @@ from django.shortcuts import render, redirect
 from django.contrib import messages 
 from .models import Contact
 from django.core.mail import send_mail
-from btre.passwords import email_user
-
+try:
+    from btre.local_settings import EMAIL_HOST_USER
+except ImportError:
+    pass
 
 def contact(request):
     if request.method == 'POST':
@@ -33,7 +35,7 @@ def contact(request):
         send_mail(
           'Property listing inquiry',
           'There has been an inquiry for ' + listing + '. Sign into the admin panel for more info',
-          email_user,
+          EMAIL_HOST_USER,
           [realtor_email, 'enrique.velasco@gmail.com'],
           fail_silently=False
         )

@@ -5,6 +5,7 @@
 ## BTRE project ignores
 btre/.DS_Store
 btre/passwords.py
+btre/local_settings.py
 
 ### Django ###
 *.log
